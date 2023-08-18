@@ -5,11 +5,13 @@ Questa repository contiene il codice Python che esegue un controllo sui codici C
 * Il percorso del file .zip che contiene i dati di OpenCoesione.
 * Il nome della scheda CUP nel file Estrazione CUP da PAdigitale2026, che contiene l'elenco dei codici CUP da controllare.
 * Il nome della cartella CUP da controllare.
+
 Il codice prima legge i dati dai due file. Quindi esegue una serie di controlli sui codici CUP, tra cui:
 
 * Se il codice CUP è già presente in OpenCoesione.
 * Se il codice CUP è presente nel feedback dal DIPE.
 * Se il codice CUP è associato al modello corretto.
+
 Il codice quindi classifica i codici CUP secondo una scala di priorità. Le possibili classificazioni sono:
 
 * "CUP già presente in OPEN COESIONE" (CUP già presente in OpenCoesione)
@@ -18,6 +20,7 @@ Il codice quindi classifica i codici CUP secondo una scala di priorità. Le poss
 * "TEMPLATE MANCANTE" (Template mancante)
 * "POSSIBILE TEMPLATE ERRATO" (Possibile template errato)
 * "NESSUN PROBLEMA RISCONTRATO AL MOMENTO" (Nessun problema trovato al momento)
+
 Infine, il codice crea due file di output:
 
 * KPI_aggregati.csv, che contiene il numero di codici CUP per ogni classificazione.
