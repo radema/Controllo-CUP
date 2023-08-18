@@ -1,4 +1,5 @@
 import os
+import sys
 
 import pandas as pd
 
@@ -157,8 +158,8 @@ if __name__ == "__main__":
     """
     Esegue il controllo CUP utilizzando i file specificati.
     """
-
-    arg1 = "progetti_esteso_20230430.zip"
-    arg2 = "CUP"
-    arg3 = "Estrazione CUP-2023-07-19-09-01-50.xlsx"
-    main(arg1, arg2, arg3)
+    args = sys.argv[1:]
+    # args[0] = "progetti_esteso_20230430.zip"
+    # arg2 = "CUP"
+    # arg3 = "Estrazione CUP-2023-07-19-09-01-50.xlsx"
+    main(args[0], args[1], args[2])
