@@ -4,7 +4,7 @@ import sys
 import pandas as pd
 
 
-def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
+def main(opencoesione_filepath: str, dipe_feedback, list_cup_filepath: str):
     """
     Esegue il controllo CUP utilizzando i dati forniti.
 
@@ -70,13 +70,6 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
 
     col_list = df_pad2026.columns
     df_pad2026.columns = [col.upper().replace(" ", "_") for col in col_list]
-
-    assert df_pad2026.columns == [
-        "CODICE_CUP",
-        "NOME_DECRETO",
-        "MISURA",
-        "APPLYING_ORGANIZATION:_TIPOLOGIA_ENTE",
-    ]
 
     tmp_df = df_pad2026.merge(df, on="CODICE_CUP", how="left").copy()
     assert len(tmp_df) == len(df_pad2026)
