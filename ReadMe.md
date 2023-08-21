@@ -47,3 +47,25 @@ Per eseguire il progetto, eseguire il seguente comando nella cartella di lavoro:
 ```
 python src/main.py data/progetti_esteso_OC.zip CUP Estrazione_CUP.xlsx
 ```
+
+## Utilizzo tramite [Google Colab](https://colab.research.google.com/?hl=it)
+
+### Prerequisiti
+
+* account per accedere a Google Colab
+
+* accesso alla repository GitHub
+
+### Istruzioni
+
+1. Accedere a [Google Colab](https://colab.research.google.com/?hl=it) tramite il proprio account
+
+2. In fase di accesso, optare per l'opzione `github'
+
+3. cercare per `radema` nella barra di ricerca e selezionare la repository `Controllo-Cup`
+
+4. Aprire il foglio `controllo_cup.ipynb`
+
+5. Eseguire le prime due celle
+
+6. Seguire le istruzioni del notebook
