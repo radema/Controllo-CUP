@@ -38,8 +38,6 @@ git clone https://github.com/radema/Controllo-CUP.git
 make activate-env
 
 conda activate controllo_cup
-
-
 ```
 
 ## Uso
