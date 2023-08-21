@@ -47,4 +47,3 @@ Per eseguire il progetto, eseguire il seguente comando nella cartella di lavoro:
 ```
 python src/main.py data/progetti_esteso_OC.zip CUP Estrazione_CUP.xlsx
 ```
-
