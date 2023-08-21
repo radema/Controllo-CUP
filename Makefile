@@ -13,21 +13,11 @@ initialize-git:
 	git add .
 	git commit -m "Setup project"
 
-clone-git:
-	@echo "Cloning repository Git..."
-	git clone https://github.com/radema/Controllo-CUP.git
-
-update-git:
-	@echo "Update repository from origin..."
-	git pull
-
 pre-commit-install:
 	@echo "Installing pre commit"
 	$(CONDA_ACTIVATE) controllo_cup; pre-commit install
 
-setup: activate-env clone-git pre-commit-install
-
-update: clone-git
+setup: activate-env pre-commit-install
 
 ## Delete all compiled Python files
 clean:
