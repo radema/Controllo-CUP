@@ -26,12 +26,20 @@ Infine, il codice crea due file di output:
 * KPI_aggregati.csv, che contiene il numero di codici CUP per ogni classificazione.
 * CUP_ANALYSIS.xlsx, che contiene tutti i dati per tutti i codici CUP, inclusa la classificazione.
 
+**Nota bene:** i file di input vanno inseriti nella cartella src/data
+
 ## Installazione
 
-Per installare il progetto, eseguire il seguente comando nella cartella di lavoro:
+Per installare il progetto, eseguire i seguenti comandi nella cartella di lavoro:
 
 ```
-pip install -r requirements.txt
+git clone https://github.com/radema/Controllo-CUP.git
+
+make activate-env
+
+conda activate controllo_cup
+
+
 ```
 
 ## Uso
