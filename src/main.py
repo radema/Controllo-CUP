@@ -140,7 +140,7 @@ def main(opencoesione_filepath: str, dipe_feedback, list_cup_filepath: str):
     print(len(df_pad2026))
     # crea aggregati
     tmp_df.groupby(by=["CLASSIFICAZIONE_ISSUE_CUP"]).CODICE_CUP.count().to_csv(
-        "data/KPI_aggregati.csv", index=False
+        "data/KPI_aggregati.csv", index=True
     )
     print("Check: Done!")
     tmp_df.to_excel("data/CUP_ANALYSIS.xlsx", index=False)
