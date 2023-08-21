@@ -26,7 +26,7 @@ Infine, il codice crea due file di output:
 * KPI_aggregati.csv, che contiene il numero di codici CUP per ogni classificazione.
 * CUP_ANALYSIS.xlsx, che contiene tutti i dati per tutti i codici CUP, inclusa la classificazione.
 
-**Nota bene:** i file di input vanno inseriti nella cartella src/data
+**Nota bene:** i file di input vanno inseriti nella cartella `data` e non nelle sottocartelle. 
 
 ## Installazione
 

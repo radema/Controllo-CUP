@@ -17,6 +17,7 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
         file CUP_ANALYSIS.xls e KPI_aggregati.csv con controllo CUP.
     """
 
+    print("\nReading Open Coeasione data from: " + opencoesione_filepath)
     # opencoesione file
     df_OC = pd.read_csv(
         "data/" + opencoesione_filepath,
@@ -43,6 +44,9 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
         header=0,
         # nrows=10
     )
+    print("\nRead Complete!\n")
+
+    print("\nReading data from DIPE.")
 
     # feedback DIPE
     DIRNAME = "data/" + dipe_feedback
@@ -55,12 +59,14 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
                 dfs.append(data)
                 lenghts.append(len(data))
     df = pd.concat(dfs, axis=0, ignore_index=True).drop_duplicates()
-
+    print("\nCompleted!\n")
     assert df.CODICE_CUP.duplicated().sum() == 0
 
+    print("\nReading data from SalesForce.")
     # lista CUP da Salesforce (estrazione)
     with pd.ExcelFile(os.path.join("data", list_cup_filepath)) as fl:
         df_pad2026 = pd.read_excel(fl, sheet_name=0).copy()
+    print("\nCompleted!\n")
 
     col_list = df_pad2026.columns
     df_pad2026.columns = [col.upper().replace(" ", "_") for col in col_list]
@@ -76,6 +82,7 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
     assert len(tmp_df) == len(df_pad2026)
     df_OC = df_OC.drop_duplicates(subset="CUP", keep="last").copy()
 
+    print("Checking CUP...")
     # Primi check
     # CUP double funding
     DOUBLE_FUNDING_CUP = pd.merge(
@@ -142,8 +149,9 @@ def main(opencoesione_filepath: str, list_cup_filepath, dipe_feedback: str):
     tmp_df.groupby(by=["CLASSIFICAZIONE_ISSUE_CUP"]).CODICE_CUP.count().to_csv(
         "data/KPI_aggregati.csv", index=False
     )
-
-    tmp_df.to_excel("../data/02_primary/CUP_ANALYSIS.xlsx", index=False)
+    print("Check: Done!")
+    tmp_df.to_excel("data/CUP_ANALYSIS.xlsx", index=False)
+    print("Writing result")
 
     def fake_function1():
         """fake function"""
